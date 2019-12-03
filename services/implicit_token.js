@@ -95,7 +95,7 @@ angular.module('implicitToken', [])
         } else {
           service.setting_bearer = {
             headers: {
-              'Accept': 'application/json',              
+              'Accept': 'application/json',
               "Authorization": "Bearer " + window.localStorage.getItem('access_token'),
             }
           };
@@ -120,7 +120,7 @@ angular.module('implicitToken', [])
       setExpiresAt: function () {
         if (angular.isUndefined(window.localStorage.getItem('expires_at')) || window.localStorage.getItem('expires_at') === null) {
           var expires_at = new Date();
-          expires_at.setSeconds(expires_at.getSeconds() + parseInt(window.localStorage.getItem('expires_in')) - 60); // 60 seconds less to secure browser and response latency
+          expires_at.setSeconds(expires_at.getSeconds() + parseInt(window.localStorage.getItem('expires_in')) - 10); // 10 seconds less to secure browser and response latency
           window.localStorage.setItem('expires_at', expires_at);
         }
       },
@@ -129,11 +129,15 @@ angular.module('implicitToken', [])
         if (!angular.isUndefined(window.localStorage.getItem('expires_at')) || window.localStorage.getItem('expires_at') === null) {
           $interval(function () {
             if (service.expired()) {
-                service.clearStorage();
+              service.clearStorage();
+            }
+            if ((window.localStorage.getItem('expires_at')) === 'Invalid Date') {
+              service.clearStorage();
+              window.location.reload();
             }
           }, 5000);
-        }else {
-            window.location.reload();
+        } else {
+          window.location.reload();
         }
       },
 
@@ -154,13 +158,13 @@ angular.module('implicitToken', [])
         }
         return valid;
       },
-      clearStorage: function() {
+      clearStorage: function () {
         window.localStorage.removeItem('access_token');
-          window.localStorage.removeItem('id_token');
-          window.localStorage.removeItem('expires_in');
-          window.localStorage.removeItem('state');
-          window.localStorage.removeItem('expires_at');
-    }
+        window.localStorage.removeItem('id_token');
+        window.localStorage.removeItem('expires_in');
+        window.localStorage.removeItem('state');
+        window.localStorage.removeItem('expires_at');
+      }
     };
     service.setExpiresAt();
     service.timer();
