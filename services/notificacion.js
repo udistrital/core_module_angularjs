@@ -34,6 +34,7 @@ angular.module('notificacionService', [])
         var addMessage = function (message) {
             methods.log = [message].concat(methods.log)
         };
+        var user = "";
 
         var queryNotification = function () {
             configuracionRequest.get('notificacion_estado_usuario?query=Usuario:' + payload.sub + ',Activo:true&sortby=notificacion&order=asc&limit=-1', '')
@@ -62,9 +63,11 @@ angular.module('notificacionService', [])
                 });
         };
         if (token_service.live_token()) {
+
             payload = token_service.getPayload();
             if (!angular.isUndefined(payload.role)) {
                 var roles = "";
+                var user = payload.sub;
                 if (typeof payload.role === "object") {
                     var rl = [];
                     for (var index = 0; index < payload.role.length; index++) {
@@ -105,6 +108,7 @@ angular.module('notificacionService', [])
             queryNotification: queryNotification,
             addMessage: addMessage,
             payload: payload,
+            user: user,
 
             get: function () {
                 dataStream.send(JSON.stringify({
@@ -112,7 +116,7 @@ angular.module('notificacionService', [])
                 }));
             },
 
-            changeStateNoView: function (user) {
+            changeStateNoView: function () {
                 // console.info(user)
                 // console.log(methods.log.filter(function (data) { return (data.Estado).toLowerCase() === 'enviada' }))
                 if (methods.log.filter(function (data) { return (data.Estado).toLowerCase() === 'enviada' }).length >= 1) {

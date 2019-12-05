@@ -174,6 +174,7 @@ angular.module('themeService', [])
 });
 
 (function($) {
+    $('body').removeClass('modal-backdrop fade in');
     $.fn.hasScrollBar = function() {
         return this.get(0).scrollHeight > this.height();
     }

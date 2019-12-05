@@ -4,7 +4,7 @@
 }
 
 .title-notifications{
-  text-align: center;
+  text-align: left;
   font-family: "Open Sans", sans-serif;
   font-size: 22px;
 }
@@ -45,7 +45,8 @@
   font-family: "Open Sans", sans-serif;
   color: black;
   white-space: normal;
-  font-size: 15px;
+  text-align: left;
+  font-size: 12px;
 }
 
 .form-control {
