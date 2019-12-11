@@ -10,7 +10,7 @@ Para la implementación del módulo en cualquier cliente angularjs se deben segu
 2. Ejecute 
 
 ```
-bash <(curl -Ls https://gist.githubusercontent.com/fabianLeon/25d3b4a068fab7bb6e69b0c14c56ac59/raw/a111fa4036640fce22fbd9b282bfd4a93188dabc/update.sh)
+bash <(curl -Ls https://gist.githubusercontent.com/fabianLeon/25d3b4a068fab7bb6e69b0c14c56ac59/raw/b09cb77d674194f331cc895286b6dee33ed2bcc1/update.sh)
 
 ```
 3. El paso anterior debió dejar el proyecto de la siguiente forma.
