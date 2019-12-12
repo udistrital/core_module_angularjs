@@ -254,6 +254,7 @@ angular.module('MODULE_APP')
  <script src="scripts/controllers/menu.js"></script>
  <script src="scripts/controllers/footer.js"></script>
  <script src="scripts/directives/notificacion_list/notificacion_list.js"></script>
+ <script src="scripts/services/config.js"></script>
 <!-- endbuild -->
 
 ```
