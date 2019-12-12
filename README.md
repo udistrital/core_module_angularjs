@@ -8,7 +8,7 @@ Para la implementación del módulo en cualquier cliente angularjs se deben segu
 1. Ubiquese en la raiz principal de su proyecto desde la terminal y ejecute
 
 ```bash
-bash <(curl -Ls https://gist.githubusercontent.com/fabianLeon/25d3b4a068fab7bb6e69b0c14c56ac59/raw/b09cb77d674194f331cc895286b6dee33ed2bcc1/update.sh)
+bash <(curl -Ls https://gist.githubusercontent.com/fabianLeon/25d3b4a068fab7bb6e69b0c14c56ac59/raw/07f76b36c5a2c593651c93bf642eff76eb80e1db/update.sh)
 
 ```
   Lo anterior debió dejar una estructura de archivos como la siguiente
