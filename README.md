@@ -256,6 +256,66 @@ angular.module('MODULE_APP')
  <script src="scripts/directives/notificacion_list/notificacion_list.js"></script>
  <script src="scripts/services/config.js"></script>
 <!-- endbuild -->
+```
 
+6. Ajuste de Gruntfile.js
+Añanda en Gruntfile lo siguiente
+
+```js
+, {
+          expand: true,
+          cwd: '<%= yeoman.app %>/core',
+          src: '**/*.*',
+          dest: '<%= yeoman.dist %>/core'
+        },
+```
+En el  task copy 
+```js
+    // Copies remaining files to places other tasks can use
+    copy: {
+      dist: {
+        files: [{
+          expand: true,
+          dot: true,
+          cwd: '<%= yeoman.app %>',
+          dest: '<%= yeoman.dist %>',
+          src: [
+            '*.{ico,png,txt}',
+            '*.html',
+            'images/**/*.{webp}',
+            'styles/fonts/**/*.*'
+          ]
+        }, {
+          expand: true,
+          cwd: '<%= yeoman.app %>/views',
+          src: '**/*.html',
+          dest: '<%= yeoman.dist %>/views'
+        }, {
+          expand: true,
+          cwd: '<%= yeoman.app %>/core',
+          src: '**/*.*',
+          dest: '<%= yeoman.dist %>/core'
+        },{
+          expand: true,
+          cwd: 'bower_components/angular-ui-grid/fonts',
+          src: ['*.eot', '*.svg', '*.ttf', '*.woff'],
+          dest: '<%= yeoman.dist %>/styles/fonts/'
+        }, {
+          expand: true,
+          cwd: '<%= yeoman.app %>/scripts',
+          src: '**/*.json',
+          dest: '<%= yeoman.dist %>/scripts'
+        }, {
+          expand: true,
+          cwd: '.tmp/images',
+          dest: '<%= yeoman.dist %>/images',
+          src: ['generated/*']
+        }, {
+          expand: true,
+          cwd: 'bower_components/bootstrap/dist',
+          src: 'fonts/*',
+          dest: '<%= yeoman.dist %>'
+        }]
+      },
 ```
 
