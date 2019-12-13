@@ -262,15 +262,17 @@ angular.module('MODULE_APP')
 Añanda en Gruntfile lo siguiente
 
 ```js
-, {
-          expand: true,
-          cwd: '<%= yeoman.app %>/core',
-          src: '**/*.*',
-          dest: '<%= yeoman.dist %>/core'
-        },
+{
+  expand: true,
+  cwd: '<%= yeoman.app %>/core',
+  src: '**/*.*',
+  dest: '<%= yeoman.dist %>/core'
+}
 ```
-En el  task copy 
+En el task copy, debera quedar así:
+
 ```js
+...
     // Copies remaining files to places other tasks can use
     copy: {
       dist: {
@@ -316,6 +318,6 @@ En el  task copy
           src: 'fonts/*',
           dest: '<%= yeoman.dist %>'
         }]
-      },
+...
 ```
 
