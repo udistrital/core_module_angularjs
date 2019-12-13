@@ -225,7 +225,7 @@ angular.module('MODULE_APP')
      - npm install natives
      - npm install
      - bower install --allow-root
-     - cp -f app/scripts/environments/environment_test.js app/scripts/environments/environment.js
+     - cp -f app/scripts/environment/environment_test.js app/scripts/environment/environment.js
      - grunt build
     when:
       branch: [test]
@@ -238,7 +238,7 @@ angular.module('MODULE_APP')
      - npm install natives
      - npm install
      - bower install --allow-root
-     - cp -f app/scripts/environments/environment_prod.js app/scripts/environments/environment.js
+     - cp -f app/scripts/environment/environment_prod.js app/scripts/environment/environment.js
      - grunt build
     when:
       branch: [master]
